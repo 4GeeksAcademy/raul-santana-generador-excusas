@@ -14,12 +14,14 @@ let when = [
   "durante mi almuerzo",
   "mientras rezaba"
 ];
-
+function posicionArray(array) {
+  return Math.floor(Math.random() * array.length);
+}
 function generateExcuse() {
-  let randomWho = who[Math.floor(Math.random() * who.length)];
-  let randomAction = action[Math.floor(Math.random() * action.length)];
-  let randomWhat = what[Math.floor(Math.random() * what.length)];
-  let randomWhen = when[Math.floor(Math.random() * when.length)];
+  let randomWho = who[posicionArray(who)];
+  let randomAction = action[posicionArray(action)];
+  let randomWhat = what[posicionArray(what)];
+  let randomWhen = when[posicionArray(when)];
 
   let concatenatedString =
     randomWho + " " + randomAction + " " + randomWhat + " " + randomWhen;
@@ -29,5 +31,4 @@ function generateExcuse() {
 
 window.onload = () => {
   document.querySelector("#excuse").innerHTML = generateExcuse();
-  const etiqueta = document.querySelector("#excuse");
 };
